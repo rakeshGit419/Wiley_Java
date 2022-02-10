@@ -4,12 +4,12 @@ public class lcm {
 
         int remainder;
         while(divisor % divident != 0){
-            remainder = divisor % divident;
-            divisor = divident;
-            divident = remainder;
+            remainder = divisor % dividend;
+            divisor = dividend;
+            dividend = remainder;
         }
 
-        return divident;
+        return dividend;
 
     }
 
