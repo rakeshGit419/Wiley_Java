@@ -12,8 +12,6 @@ class Location{
         return "Location [city=" + city + ", street=" + street + "]";
     }
 }
-
-
 class Address{
     Location location;
     String state;
@@ -28,8 +26,6 @@ class Address{
         this.country = country;
     } 
 }
-
-
 class UPIPaymentApps implements Cloneable {
     String name;
     int dailyLimit;
@@ -55,8 +51,6 @@ class UPIPaymentApps implements Cloneable {
                 + headOfOfficeLocation + ", maxDailyAmount=" + maxDailyAmount + ", name=" + name + "]";
     }   
 }
-
-
 public class DeepCpy{
     public static void main(String[] args) throws CloneNotSupportedException {
         UPIPaymentApps bhim = new UPIPaymentApps("BHIM", 10000, 100000,new Address(new Location("Attapur","Hyderabad"),"Telangana","India"));
@@ -64,15 +58,12 @@ public class DeepCpy{
 
         UPIPaymentApps Paytm = (UPIPaymentApps)bhim.clone();
         Paytm.name = "Paytm";
-        System.out.println(Paytm);  // city = hyderabad & state = TS
+        System.out.println(Paytm);  // city = hyderabad & state = Telangana
 
         Paytm.headOfOfficeLocation.location.city = "Mumbai";
         Paytm.headOfOfficeLocation.state = "Maharashtra";
         
         System.out.println(Paytm); // city = Mumbai & state = Maharashtra
         System.out.println(bhim.headOfOfficeLocation.state);
-
-
-
     }
 }
