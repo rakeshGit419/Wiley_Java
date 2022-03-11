@@ -1,3 +1,4 @@
+import java.util.*;
 class LinkedList {
     Node head;
     int size;
@@ -103,6 +104,27 @@ class LinkedList {
         size--;
     }
 
+    void getLast(){
+        if(head == null){System.out.println("Collection is Empty");return;}
+        Node temp = head;
+        for(int i=0;i<size-1;i++){
+            temp = temp.next;
+        }
+        System.out.println(temp.data);
+    }
+// ----------------display for stack application-----------------------
+    public void displayStack() {
+        int[] arr = new int[size];
+        int i=0;
+        Node temp = head;
+        while (temp != null && i<size) {
+            arr[i++] = temp.data;
+            temp = temp.next;
+        }
+        for(int j=arr.length-1;j>=0;j--){
+            System.out.print(arr[j]+" ");
+        }
+    }
     public void display() {
         Node temp = head;
         while (temp != null) {
@@ -113,20 +135,69 @@ class LinkedList {
     }
 }
 
+class Stack{
+    LinkedList LL;
+    Stack(){
+        LL = new LinkedList();
+    }
+
+    void push(int val){
+        LL.insertAtFirst(val);
+    }
+
+    void pop(){
+        LL.deleteFirst();
+    }
+
+    void peek(){
+        LL.getLast();
+    }
+
+    void printStack(){
+        LL.display();
+    }
+}
+
+
 public class LinkedListDriver {
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
 
-        ll.insertAtFirst(1);
-        ll.insertAt(1, 5);
-        ll.insertLast(6);
-        // System.out.println("length of Linked List - "+ll.size);
+        Stack stack = new Stack();
+        stack.push(3);
+        stack.push(78);
+        stack.pop();
+        stack.printStack();
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // LinkedList ll = new LinkedList();
+
+        // ll.insertAtFirst(1);
+        // ll.insertAt(1, 5);
+        // ll.insertLast(6);
+        // // System.out.println("length of Linked List - "+ll.size);
+        // // ll.display();
+        // // System.out.println("\"Deleting first Node\"");
+        // // ll.deleteFirst();
+        // // ll.deleteLast();
+        // // ll.deleteAtIdx(2);
+        // System.out.println("length of Linked List - " + ll.size);
         // ll.display();
-        // System.out.println("\"Deleting first Node\"");
-        // ll.deleteFirst();
-        // ll.deleteLast();
-        // ll.deleteAtIdx(2);
-        System.out.println("length of Linked List - " + ll.size);
-        ll.display();
     }
 }
