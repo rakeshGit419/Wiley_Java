@@ -1,0 +1,98 @@
+CREATE DATABASE IF NOT EXISTS first_db;
+USE first_db;
+
+CREATE TABLE `productlines` (
+    `productLine` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `textDescription` VARCHAR(100) NOTNULL,
+    `htmlDescription` VARCHAR(100) NOTNULL,
+    `image` VARCHAR(50) DEFAULT NULL,
+    CONSTRAIT `prodLine_users` PRIMARY KEY('productLine')
+)
+
+CREATE TABLE `employees` (
+    `employeeNumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `lastName` VARCHAR(20) DEFAULT NULL,
+    `firstName` VARCHAR(20) NOTNULL,
+    `extension` VARCHAR(10) DEFAULT NULL,
+    `email` varchar(20) DEFAULT NULL, 
+    `officeCode` VARCHAR(6) NOTNULL UNIQUE,
+    `reportsTo` VARCHAR(20) NOTNULL,
+    `jobTitle` VARCHAR(20) NOTNULL,
+    CONSTRAIT `emp_id` PRIMARY KEY('employeeNumber'),
+    CONSTRAINT `emp_email` UNIQUE (`email`),
+    INDEX `IDX_email` (`email`),
+    INDEX `IDX_emp_username_password` (`username`, `password`)
+)
+
+CREATE TABLE `offices` (
+    `officeCode` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `city` VARCHAR(20) DEFAULT NULL,
+    `phone` VARCHAR(50) DEFAULT NULL,
+    `addressLine1` VARCHAR(50) NOTNULL,
+    `addressLine2` VARCHAR(50) DEFAULT NULL,
+    `state` VARCHAR(30) NOTNULL, 
+    `country` varchar(30) NOTNULL, 
+    `postalCode` varchar(10) NOTNULL UNIQUE, 
+    `territory` varchar(30) DEFAULT NULL, 
+    CONSTRAIT `office_emp` PRIMARY KEY('officeCode'),
+    CONSTRAIT `emp_phone` UNIQUE ('phone'),
+    CONSTRAIT `emp_addr` UNIQUE ('postalCode'),
+    INDEX 'IDX_city' ('city'),
+    INDEX 'IDX_country' ('country'),
+    INDEX 'IDX_phone' ('phone')
+)
+
+CREATE TABLE `products` (
+    `productCode` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `productName` VARCHAR(50) NOTNULL,
+    `productLine` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `productScale` VARCHAR(20) NOT NULL,
+    `productVendor` VARCHAR(20) NOT NULL,
+    `productDescription` VARCHAR(100) DEFAULT NULL,
+    `quantityInStock` int(10) DEFAULT NULL,
+    `buyPrice` VARCHAR(20) NOT NULL,
+    `MSRP` VARCHAR(20) NOT NULL,
+    CONSTRAIT `prod_code` PRIMARY KEY(`productCode`),
+    INDEX `prod_vendor` (`productVendor`);
+    INDEX `prod_quant` (`quantityInStock`);
+    INDEX `prod_line` (`productLine`);
+)
+
+CREATE TABLE `customers` (
+    `customerNumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `customerName` VARCHAR(20) NOTNULL,
+    `customerLastName` VARCHAR(20) DEFAULT NULL,
+    `customerFirstName` VARCHAR(20) DEFAULT NULL,
+    `phone` VARCHAR(50) DEFAULT NULL,
+    `addressLine1` VARCHAR(50) NOTNULL,
+    `addressLine2` VARCHAR(50) DEFAULT NULL,
+    `state` VARCHAR(30) NOTNULL, 
+    `country` varchar(30) NOTNULL, 
+    `postalCode` varchar(10) NOTNULL UNIQUE, 
+    `creditLimit` varchar(20) DEFAULT NULL,
+    `salesRepEmployeeNumber` int(10) UNSIGNED NOTNULL UNIQUE,
+
+    CONSTRAIT `prodLine_users` PRIMARY KEY(`productLine`),
+    CONSTRAIT `emp_phone` UNIQUE (`phone`),
+    CONSTRAIT `emp_addr` UNIQUE (`postalCode`),
+    CONSTRAIT `emp_sales` UNIQUE (`salesRepEmployeeNumber`),
+    INDEX `IDX_city` (`city`),
+    INDEX `IDX_country` (`country`),
+    INDEX `IDX_phone` (`phone`)
+)
+
+CREATE TABLE `orderdetails` (
+    `orderNumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `productCode` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `productCode` VARCHAR(100) NOTNULL,
+    `quantityOrdered` VARCHAR(50) NOTNULL,
+    `priceEach` VARCHAR(50) NOTNULL,
+    `quantityOrdered` VARCHAR(50) NOTNULL,
+    CONSTRAIT `order_num_code` PRIMARY KEY('orderNumber',`productCode`),
+    CONSTRAIT `order_line_num` UNIQUE (`orderLineNumber`)
+)
+
+CREATE TABLE `orders` (
+    `orderNumber` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+    `orderDate` DATETIME NOTNULL,
+)

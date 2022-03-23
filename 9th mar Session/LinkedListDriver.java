@@ -52,7 +52,7 @@ class LinkedList {
         Node temp = head;
         for (int i = 0; i < (idx - 1); i++)
             temp = temp.next;
-        node.next = temp.next.next;
+        node.next = temp.next;
         temp.next = node;
     }
 
@@ -161,12 +161,13 @@ class Stack{
 
 public class LinkedListDriver {
     public static void main(String[] args) {
-
-        Stack stack = new Stack();
-        stack.push(3);
-        stack.push(78);
-        stack.pop();
-        stack.printStack();
+        LinkedList ll = new LinkedList();
+        ll.insertAt(0, 1);
+        ll.insertAt(1, 2);
+        ll.insertAt(2, 3);
+        ll.insertAt(1,45);
+        ll.display();
+        
         
 
 
