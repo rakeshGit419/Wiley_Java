@@ -78,21 +78,35 @@ class CarBuilder implements Builder{
 }
 
 
-class Director{
-
+class Director {
     private CarBuilder carBuilder;
-    Engine engine = new Engine("Twin-Turbo");
     
-    public Director(CarBuilder carBuilder) {
+    public Director() {
+    }
+
+    Director(CarBuilder carBuilder) {
         this.carBuilder = carBuilder;
     }
 
-    public void makeSportsCar(CarBuilder carBuilder) {
-        carBuilder.setEngine(this.engine);
+    public void makeSUVCar(CarBuilder carBuilder) {
+        carBuilder.reset();
         carBuilder.setSeats(4);
-        carBuilder.setTripComputer("");
+        // carBuilder.setEngine();
+        // carBuilder.setTripComputer();
+        // carBuilder.setGPS();
     }
-    
+
+    // public void makeSportsCar(CarBuilder carBuilder1) {
+    //     carBuilder1.reset();
+    //     carBuilder1.setSeats();
+    //     carBuilder1.setEngine();
+    //     carBuilder1.setTripComputer();
+    //     carBuilder1.setGPS();
+    // }
+
+    public Car getResult() {
+        return this.carBuilder.getResult();
+    }
 }
 
 
@@ -102,7 +116,7 @@ public class ClientBuilderPattern {
     public static void main(String[] args) {
         Director director = new Director();
         CarBuilder builder = new CarBuilder();
-        director.makeSportsCar(builder);
+        director.makeSUVCar(builder);
         Car car = builder.getResult();
     }
 }
