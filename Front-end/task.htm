@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap Registration Form</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <main class="col-md-5 mx-auto">
+      <header class="text-center">
+        <h1 class="display-4 text-primary text-uppercase">Login</h1>
+        <h6 class="text-secondary">Enter your Credentials</h6>
+      </header>
+      <hr />
+
+      <section>
+        <form action="register-backend" method="GET" class="font-weight-bold">
+          <!-- Email -->
+          <div id="emailField" name="emailField" class="form-group">
+            <label for="email">Email:</label><br />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control"
+              placeholder="abc@xyz.com"
+              required
+            />
+            <small id="emailFieldHelp" class="form-text text-muted"
+              >Your email is safe with us :)</small
+            >
+          </div>
+
+          <!-- Password -->
+          <div id="passwordField" name="passwordField" class="form-group">
+            <label for="password">Password:</label><br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              class="form-control"
+              required
+            />
+            
+          </div>
+
+      
+            <div class="row">
+          <div id="dobField" name="dobField" class="form-group col-lg-6">
+            <label for="dob">Captcha Code</label><br />
+            <input type="text" id="dob" name="dob" value="Q9KYwxA" style="background-color: rgba(196, 196, 33, 0.961);" class="form-control" readonly/>
+          </div>
+
+          <div id="ageField" name="ageField" class="form-group col-lg-6">
+            <label for="age">Enter Captcha</label><br />
+            <input type="text" id="age" name="age" class="form-control" />
+          </div>
+        </div>
+        </div>
+          
+        
+              
+          
+          <div id="employmentField" name="employmentField" class="form-group">
+            
+            <div
+              id="employmentStatus"
+              name="employmentStatus"
+              class="font-weight-normal"
+            >
+              <div class="form-check form-check-inline">
+                <input
+                  type="checkbox"
+                  name="student"
+                  id="student"
+                  class="form-check-input"
+                />
+                <label for="student" class="form-check-label">keep me signed in</label>
+              </div>
+        </form>
+      </section>
+      <button type="button" class="btn btn-primary btn-lg btn-block">Login</button>
+    </main>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+      integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
