@@ -10,11 +10,17 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
           integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <title>Sign Up</title>
+    <style>
+    	.font{
+    		font-size:20px;
+    	}
+    </style>
+    
 </head>
-<body>
+<body style="background-color:#6dd5ed;">
 
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light" >
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color:#6dd5ed;">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">
             <img th:src="@{/images/logo.png}"  src="../static/images/logo.png" width="auto" height="60" class="d-inline-block align-top" alt=""/>
@@ -27,13 +33,13 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link fs-5" th:href="@{/}" href="#">home</a>
+                    <a class="nav-link fs-3" style="font-size:20px; " th:href="@{/}" href="#">home</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link fs-5" th:href="@{/shop}" href="#">shop</a>
+                    <a class="nav-link fs-3" style="font-size:20px;" th:href="@{/shop}" href="#">shop</a>
                 </li>
                <!-- <li class="nav-item active">
-                    <a class="nav-link fs-5" href="#">Sign Up</a>
+                    <a class="nav-link fs-4" href="#">Sign Up</a>
                 </li> -->
 
             </ul>
@@ -48,28 +54,28 @@
 	        <p class="text-center">Please fill out this to register</p>
 	        <form th:action="@{/register}" th:object="${user}" method="post">
 	            <div class="form-group">
-	                <label for="firstName">First Name</label>
+	                <label for="firstName" class="font" >First Name</label>
 	                <input type="text" name="firstName" id="firstName" required placeholder="Your Firstname" class="form-control form-control-lg">
 	            </div>
 	            <div class="form-group">
-	                <label for="lastName">Last Name</label>
+	                <label for="lastName" class="font" >Last Name</label>
 	                <input type="text" name="lastName" id="lastName" required placeholder="Your Lastname" class="form-control form-control-lg">
 	            </div>
 	            <div class="form-group">
-	                <label for="email">Email address</label>
+	                <label for="email"class="font" >Email address</label>
 	                <input type="email" class="form-control form-control-lg" required minlength="6" placeholder="Email" name="email" id="email"
 	                       aria-describedby="emailHelp">
-	                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+	                <small id="emailHelp" class="form-text text-muted" style="font-size:18px;" >We'll never share your email with
 	                    anyone else.</small>
 	            </div>
 	            <div class="form-group">
-	                <label for="password">Password</label>
+	                <label for="password" class="font">Password</label>
 	                <input type="password" class="form-control form-control-lg" required placeholder="Password" name="password"
 	                       id="password">
 	            </div>
 	
 	            <input type="submit" value="Register" class="btn btn-primary btn-block">
-	            <span style="margin-top: 10px">Already have an account <a class="linkControl" href="./login.html"
+	            <span style="margin-top: 10px" class="font" >Already have an account <a class="linkControl text-danger" href="./login.html"
 	                                                                      th:href="@{/login}">Login here</a></span>
 	        </form>
 	    </div>

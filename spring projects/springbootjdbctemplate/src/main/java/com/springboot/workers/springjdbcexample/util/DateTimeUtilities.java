@@ -1,12 +1,12 @@
 package com.springboot.workers.springjdbcexample.util;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class DateTimeUtilities {
-	public static void main(String[] args) {
-		Date date = new Date(System.currentTimeMillis());
-		System.out.println(date);
+	private static Date date;
+	public static String getDateTime() {
+		date = new Date();
+		return date.toString();
 	}
-
 }
 

@@ -53,8 +53,6 @@ public class SecurityCongfig extends WebSecurityConfigurerAdapter{
 		.csrf()
 		.disable();
 	http.headers().frameOptions().disable(); // just b/c using h2 db
-	
-		
 	}
 	@Bean
 	public BCryptPasswordEncoder bCryptPasswordEncoder() {
