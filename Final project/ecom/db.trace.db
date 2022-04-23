@@ -112,3 +112,9 @@ update product set category_id=?, description=?, image_name=?, name=?, price=?, 
 2022-04-22 17:07:11 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "STRINGDECODE('Elastic,Fleece,Terry\r\nFrench terry fabric offers lightweight warmth and a soft feel.\r\nHood with drawcord provi... (273)"; SQL statement:
 update product set category_id=?, description=?, image_name=?, name=?, price=?, weight=? where id=? [22001-200]
+2022-04-23 03:15:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION VARCHAR(255)": "STRINGDECODE('Gender : Unisex and Waterproof LED Shoes\r\nFree USB rechargeable: 1-2 hours of charge gives +24 hrs of glow time.... (258)"; SQL statement:
+insert into product (category_id, description, image_name, name, price, weight, id) values (?, ?, ?, ?, ?, ?, ?) [22001-200]
+2022-04-23 19:00:41 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM INFORMATION_SCHEMA.CATALOGS INFORMATION_SCHEMA.[*]COLLATIONS"; SQL statement:
+SELECT * FROM INFORMATION_SCHEMA.CATALOGS INFORMATION_SCHEMA.COLLATIONS [42000-200]
